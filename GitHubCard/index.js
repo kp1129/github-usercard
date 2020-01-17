@@ -5,6 +5,7 @@
 
 axios.get('https://api.github.com/users/kp1129')
     .then( response => {
+        console.log(response);
         const newCard = createCard(response.data);
         document.querySelector('.cards').append(newCard);
     })
@@ -91,8 +92,8 @@ function createCard(obj) {
   location.textContent = `Location: ${obj.location}`;
    // a tag
    const link = document.createElement('a');
-   link.href = obj.url;
-   link.textContent = obj.url;
+   link.href = obj.html_url;
+   link.textContent = obj.html_url;
   // profile p
   const profile = document.createElement('p');
   profile.textContent = `Profile: ${link}`;
@@ -121,8 +122,6 @@ function createCard(obj) {
   console.log(mainDiv);
   return mainDiv;
 }
-
-
 
 /* List of LS Instructors Github username's: 
   tetondan
